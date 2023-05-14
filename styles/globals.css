@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply m-0 p-0 font-roboto;
+}
+body {
+  @apply m-0 p-0;
+}
+
+.transit {
+  @apply transition transition-all duration-700 ease-in-out;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.active {
+  @apply bg-blue;
+}
+
+.navLink {
+  @apply text-graydark uppercase font-noto  hover:bg-blue py-2.5 px-2;
+}
+
+.navButton {
+  @apply border border-current hover:bg-red-300 py-2 px-2;
+}
+
+.socialIcon {
+  @apply w-8 h-8 rounded-full bg-red-300 text-center mx-1;
+}
+
+.floatButton {
+  @apply h-14 w-14 rounded-xl bg-purple fixed bottom-10 right-10  text-white;
+}
+input,
+select,
+textarea {
+  @apply border p-2  outline-none ring-indigo-300  focus:ring;
+}
