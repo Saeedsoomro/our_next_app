@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <FloatButton isManuScrolled={isManuScrolled}/>
+      <FloatButton isManuScrolled={isManuScrolled} />
       <main>{children}</main>
       <IconsCard />
       <Footer />
