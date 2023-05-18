@@ -26,31 +26,13 @@ const ParallaxComponent = () => {
             <div className="">
               <div className="">
                 <h2 className="text-center">
-                  Judge HGTV Designer Of The Year Awards 2020
+                  Working together towards a brighter future
                 </h2>
               </div>
             </div>
             <div className="">
               <div className="">
-                <h2 className="text-center">
-                  Kitchen & Bath Business Person Of The Year 2020
-                </h2>
-              </div>
-            </div>
-
-            <div className="">
-              <div className="">
-                <h2 className="text-center">
-                  House Beautiful Advisory Council Member
-                </h2>
-              </div>
-            </div>
-
-            <div className="">
-              <div className="">
-                <h2 className="text-center">
-                  Designers Today Women Of Influence Honoree 2020
-                </h2>
+                <h2 className="text-center">Support Works Consulting</h2>
               </div>
             </div>
           </AutoplaySlider>
