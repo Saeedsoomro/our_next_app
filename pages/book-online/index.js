@@ -1,7 +1,16 @@
 import Layout from "@/components/Layouts/layout";
 import ServiceBox from "@/components/ServiceBox";
 import React from "react";
-import { Appointments } from "@/utlils/data";
+import { Appointments, AppointmentsSupervision } from "@/utlils/data";
+import { AppointmentsSchool } from "@/utlils/data";
+// swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/swiper-bundle.min.css";
 
 const BookNow = () => {
   return (
@@ -46,12 +55,83 @@ const BookNow = () => {
           </p>
         </div>
 
-        <div className="px-10 md:px-20 lg:px-60 2xl:px-80 text-center">
+        {/* <div className="px-10 md:px-20 lg:px-60 2xl:px-80 text-center"> */}
+        <div className="px-10 md:px-10 lg:px-10 text-center">
           <h1 className="text-3xl md:text-4xl text-black font-bold my-12 md:pt-20 ">
             Book An Appointment
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
+            Family Consultation
+          </h1>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            // slidesPerView={5} // Number of slides to show in PC
+            spaceBetween={80} // Space between slides
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 70, // Number of slides to show in iPad
+              },
+              390: {
+                slidesPerView: 1, // Number of slides to show in mobile
+              },
+              1000: {
+                slidesPerView: 3, //PC
+              },
+            }}
+            navigation={true}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 "> */}
             {Appointments.map((item) => (
+              <SwiperSlide className="w-screen">
+                <ServiceBox key={item.slug} item={item} />
+              </SwiperSlide>
+            ))}
+            {/* </div> */}
+          </Swiper>
+
+          <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
+            School Consultation
+          </h1>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            // slidesPerView={5} // Number of slides to show in PC
+            spaceBetween={80} // Space between slides
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 70, // Number of slides to show in iPad
+              },
+              390: {
+                slidesPerView: 1, // Number of slides to show in mobile
+              },
+              1000: {
+                slidesPerView: 3, //PC
+              },
+            }}
+            navigation={true}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 "> */}
+            {AppointmentsSchool.map((item) => (
+              <SwiperSlide className="w-screen">
+                <ServiceBox key={item.slug} item={item} />
+              </SwiperSlide>
+            ))}
+            {/* </div> */}
+          </Swiper>
+          <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
+            RBT\Qasp-s\ABA therapists Supervision
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10">
+            {AppointmentsSupervision.map((item) => (
               <ServiceBox key={item.slug} item={item} />
             ))}
           </div>

@@ -3,17 +3,18 @@ import React from "react";
 
 const ServiceBox = ({ item }) => {
   return (
-    <div className="border border-graylight shadow flex flex-col justify-between ">
-      <div className="h-[20rem]">
+    <div className="border border-graylight shadow flex flex-col justify-between h-[50rem] lg:h-screen md:h-[50rem] ">
+      <div className="h-[10rem]">
         <img
           className="w-full h-full hover:opacity-50 bg-black"
           src={item.image}
         />
       </div>
-      <div className=" mx-8 py-6 border-b-2 border-gray">
+      <div className=" mx-1 py-6 border-b-2 border-gray">
         <h2 className="text-2xl text-black ">{item.name}</h2>
-        <p className="text-base pt-4 underline hover:text-graydark cursor-pointer">
-          Read More
+        <p className="text-start pt-4  ">
+          {/* Read More */}
+          {item.details}
         </p>
       </div>
       <div className="py-8">
