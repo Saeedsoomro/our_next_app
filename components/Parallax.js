@@ -11,9 +11,9 @@ const ParallaxComponent = () => {
       bgImageAlt="the dog"
       strength={600}
       bgImage="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?cs=srgb&dl=daylight-forest-glossy-443446.jpg&fm=jpg"
-      className="relative h-[18.5rem]  md:h-[54rem] md:mx-16 "
+      className="  relative h-[18.5rem]  md:h-[54rem] md:mx-16 "
     >
-      <div className="h-full flex justify-center items-end h-[18.5rem]  md:h-[54rem] ">
+      <div className="sm:h-full flex justify-center items-end h-[18.5rem]  md:h-[54rem] ">
         <div className="w-full h-32 ">
           <AutoplaySlider
             play={true}

@@ -79,19 +79,16 @@ const BookNow = () => {
                 slidesPerView: 3, //PC
               },
             }}
-            navigation={true}
+            navigation={false}
             pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 "> */}
             {Appointments.map((item) => (
-              <SwiperSlide className="w-screen">
+              <SwiperSlide className="h-full">
                 <ServiceBox key={item.slug} item={item} />
               </SwiperSlide>
             ))}
-            {/* </div> */}
           </Swiper>
 
           <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
@@ -113,9 +110,8 @@ const BookNow = () => {
                 slidesPerView: 3, //PC
               },
             }}
-            navigation={true}
+            navigation={false}
             pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
@@ -130,7 +126,7 @@ const BookNow = () => {
           <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
             RBT\Qasp-s\ABA therapists Supervision
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10">
+          <div className=" md:w-1/2 lg:w-[30rem] ">
             {AppointmentsSupervision.map((item) => (
               <ServiceBox key={item.slug} item={item} />
             ))}

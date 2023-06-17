@@ -8,6 +8,7 @@ const initialState = {
     : {
         userInfo: {},
         serviceInfo: {},
+        schedule: {},
       },
 };
 
@@ -33,6 +34,18 @@ function reducer(state, action) {
       return {
         ...state,
         order: { ...state.order, serviceInfo: newSerive },
+      };
+    }
+    case "SCHEDULE_ADD_APPOINTMENT": {
+      const newSchedule = action.payload;
+
+      Cookies.set(
+        "order",
+        JSON.stringify({ ...state.order, schedule: newSchedule })
+      );
+      return {
+        ...state,
+        order: { ...state.order, schedule: newSchedule },
       };
     }
 

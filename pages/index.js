@@ -7,7 +7,11 @@ import { useState } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import branch from "../public/assets/images/branch.jpg";
-import Slider_Values from "./Slider_Values";
+import Slider_Values from "../components/Slider_Values";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import BookNow from "./book-online";
+import Link from "next/link";
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -86,48 +90,11 @@ export default function Home() {
             schools and educators who work with these individuals. Here are some
             of the services that Support Works Consulting may offer:
           </p>
-
-          {/* <p className="py-4 font-roboto text-xl text-graydark ">
-            We are diligent about guiding you through the many choices and
-            decisions, and help you avoid costly mistakes.
-          </p>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            Our menu of flexible design services means that you can have luxury
-            interior design by a top Houston design firm at a price point that
-            works for you.
-          </p>
-          <h1 className="text-2xl text-graydark font-extrabold fonto-roboto py-4">
-            Let's Talk Style
-          </h1>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            Your preferred style is important to us; whatever your style is. We
-            create spaces that will address your functional needs, but we also
-            want it to speak to your personality and aesthetic vision.
-          </p>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            While most of our clients seek us out for our bold, unique and
-            well-layered interiors, we welcome every genre of design styles,
-            from mid century modern to new traditional, and everything in
-            between
-          </p>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            The basis of our designs can be summed up as eclectic, storied,
-            classic, bold, timeless, thoughtful, with the masterful use of
-            color, pattern-mix and textures.
-          </p>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            Will you be next?
-          </p>
-          <p className="py-4 font-roboto text-xl text-graydark">
-            Let's get started with creating your ideal version of luxury in your
-            home
-          </p> */}
         </div>
         <div className="text-center">
           <button className="bg-red-400 px-5 py-2 font-samibold text-white font-noto hover:text-blaxk uppercase">
             let's talk about our project
           </button>
-
           <div className="px-10 md:px-20 lg:px-40 2xl:px-60 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
             <div class="h-[60vh] lg:h-[90vh] bg-transparent cursor-pointer group perspective ">
               <div
@@ -151,51 +118,50 @@ export default function Home() {
                 </div>
                 <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-graylight shadow-xl overflow-hidden">
                   <div class="text-center flex flex-col items-center justify-center h-full text-graydark px-2 pb-24">
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
                     >
-                      Applied Behavior Analysis (ABA) Therapy
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
-                    >
-                      Counseling and Behavior Support
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
-                    >
-                      Parent Training and Support
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
-                    >
-                      Functional Communication Training (FCT)
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
-                    >
-                      Multidisciplinary meeting
-                    </button>
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Applied Behavior Analysis (ABA) Therapy
+                      </button>
+                    </Link>
 
-                    {/* <h1 class="text-3xl font-semibold">
-                      Multidisciplinary meeting
-                    </h1> */}
-                    {/* <p class="my-2">9.0 Rating</p> */}
-                    {/* <p>
-                      SWC believes in multidisciplinary approach, the progress
-                      of the individual with special needs depends on the role
-                      of each member of the team.The consultant will meet all
-                      other therapists who work with the client (Teachers,
-                      Specialty Teachers, Occupational, Speech, Psychology, RBT,
-                      family, etc) to answer their questions, guide them throw
-                      any challenges they face, and to conduct any required
-                      training.
-                    </p> */}
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
+                    >
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Counseling and Behavior Support
+                      </button>
+                    </Link>
+
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
+                    >
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Parent Training and Support
+                      </button>
+                    </Link>
+
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
+                    >
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Functional Communication Training (FCT)
+                      </button>
+                    </Link>
+
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
+                    >
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Multidisciplinary meeting
+                      </button>
+                    </Link>
 
                     <button
                       onClick={() => setOpenServiceCard("none")}
@@ -230,30 +196,41 @@ export default function Home() {
                 </div>
                 <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-graylight shadow-xl overflow-hidden">
                   <div class="text-center flex flex-col items-center justify-center h-full text-graydark px-2 pb-24">
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
                     >
-                      Applied Behavior Analysis (ABA) Therapy
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Applied Behavior Analysis (ABA) Therapy
+                      </button>
+                    </Link>
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
                     >
-                      Educational Consulting
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Educational Consulting
+                      </button>
+                    </Link>
+
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
                     >
-                      Parent Training and Support
-                    </button>
-                    <button
-                      onClick={() => setOpenServiceCard("none")}
-                      class="bg-red-400 px-6 py-2 my-2 font-semibold text-white "
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Parent Training and Support
+                      </button>
+                    </Link>
+
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
                     >
-                      Functional Communication Training (FCT):
-                    </button>
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        Functional Communication Training (FCT):
+                      </button>
+                    </Link>
+
                     {/* <h1 class="text-3xl font-semibold">
                       Functional Communication Training (FCT):
                     </h1> */}
@@ -292,13 +269,14 @@ export default function Home() {
                 </div>
                 <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-graylight shadow-xl overflow-hidden">
                   <div class="text-center flex flex-col items-center justify-center h-full text-graydark px-2 pb-24">
-                    {/* <h1 class="text-3xl font-semibold">The King's Man</h1> */}
-                    {/* <p class="my-2">9.0 Rating</p> */}
-                    <p>
-                      ABA services may be conducted at home, school and/or
-                      community. SWC provides supervision and training for ABA
-                      therapists who work directly with clients.
-                    </p>
+                    <Link
+                      href="/book-online"
+                      className="bg-red-400 px-6 py-2 my-2 font-semibold text-white w-full "
+                    >
+                      <button onClick={() => setOpenServiceCard("none")}>
+                        ABA therapists Supervision
+                      </button>
+                    </Link>
                     <button
                       onClick={() => setOpenServiceCard("none")}
                       class="bg-red-400 px-6 py-2 font-semibold text-white absolute bottom-10 "
@@ -421,43 +399,24 @@ export default function Home() {
 
         <div className="  md:px-20 lg:px-60 2xl:px-80 mt-10 md:mt-20">
           <div className="bg-[url('https://tse4.mm.bing.net/th?id=OIP.wK8KjOjCkpE1fblJkTPsQwHaEW&pid=Api&P=0')]  hover:bg-[url('https://tse3.mm.bing.net/th?id=OIP.uQPMykkDg8jY9zuwFdbO5gHaFW&pid=Api&P=0')] bg-no-repeat bg-center bg-cover relative h-[20rem] md:h-[35rem]">
-            {/* <div className="border border-gray p-2 absolute top-1/2 mx-5 md:mx-20 lg:mx-40  bg-white bg-opacity-30  "> */}
-            {/* <div className="border border-gray text-center p-10 md:p-10 bg-white bg-gray bg-opacity-90"> */}
             <div className="w-5/6  lg:h-auto  md:h-fit border-2 border-black-900 solid relative top-1/2 left-8 sm:left-20 text-center  justify-center bg-white">
               <div className=" m-2 bg-white border-2 border-black-900 solid">
                 <Slider_Values className="" />
               </div>
             </div>
-
-            {/* <h1 className=" text-3xl md:text-5xl  font-noto text-black uppercase font-bold border-b-2 inline px-5">
-                  the blog
-                </h1>
-                <p className="font-bold font-roboto mt-10 mb-2">
-                  Ever wonder what's involved in hiring an interior designer?
-                </p>
-                <p className=" mb-2 font-roboto">
-                  Follow our blog, Lux Living Weekly to learn the behind the
-                  scenes of working with an interior designer. Our blog is
-                  dedicated to opening the conversation, transparency and taking
-                  the mystery out of the design process.
-                </p>
-                <p className=" mb-2 font-roboto">
-                  We also share tons of inspiration through our room tours, lots
-                  of design tips and ideas to get you started on your very own
-                  design project
-                </p>
-                <button className="px-5 py-2 border mt-4 uppercase hover:bg-blue">
-                  subscribe
-                </button> */}
-            {/* </div> */}
-            {/* </div> */}
           </div>
         </div>
-
-        <AwesomeSlider className="h-screen bg-white mt-36 sm:mt-60 lg:mt-52 mb-10">
-          <div className=" justify-evenly items-center  h-screen  bg-white flex  lg:flex-row flex-col-reverse lg:bg-center bg-slate-100 ">
-            <div className="lg:w-1/2 bg-white shadow-xl  tracking-widest text-black text-justify text-xl font-thin p-10 lg:p-6 ">
-              <h2 className="   ">
+        <AutoplaySlider
+          play={true}
+          cancelOnInteraction={false} // should stop playing on user interaction
+          interval={6000}
+          className="bg-white lg:h-[30rem] sm:h-[40rem] h-[60rem] mt-40 sm:mt-80"
+          bullets={false}
+          style={{ backgroundColor: "white" }}
+        >
+          <div className="h-full justify-evenly items-center  bg-white flex  lg:flex-row flex-col-reverse lg:bg-center bg-slate-100  sm:p-10 ">
+            <div className="lg:w-1/2 bg-white shadow-xl  tracking-widest text-black text-justify text-xl font-thin  ">
+              <h2 className="  m-10 ">
                 "يعطيكيالف عافية دورة رائعة وممتعة جدا" "يعطيكم العافيه وبارك
                 الله فيكم ونفع بعلمكم" اخصائية نفسيه اسماء الدريبي "تعلمنا
                 الكثيرو استفدنا كيف نتعامل مع أطفالنا و سلوكاتهم جزاك الله كل
@@ -471,7 +430,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="w-5/6 lg:w-1/3">
+            <div className="sm:h-[20rem]  sm:w-full  lg:w-1/3">
               <img
                 src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3NtYW58ZW58MHx8MHx8&w=1000&q=80"
                 alt=""
@@ -479,7 +438,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </AwesomeSlider>
+        </AutoplaySlider>
 
         {/* <div className="grid gap-4 grid-cols-2 p-48 text-white">
             <div className="h-80 w-72 rounded-lg">

@@ -8,6 +8,10 @@ import getStripe from "../../utlils/get-stripe";
 import { Appointments } from "@/utlils/data";
 import { Store } from "../../utlils/store";
 import { FcPrevious } from "react-icons/fc";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import Time from "../../components/calendar/Time";
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
@@ -16,18 +20,20 @@ const BookingCalender = () => {
   const [redirecting, setRedirecting] = useState(false);
   const [appointment, setAppointment] = useState({});
   const router = useRouter();
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState();
+  const [showTime, setShowTime] = useState(false);
   const { state, dispatch } = useContext(Store);
   const { query } = router;
   const { slug } = query;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const onChange = (date) => {
+    setDate(date);
+  };
 
-  const onSubmit = (data) => {
-    dispatch({ type: "USER_ADD_APPOINTMENT", payload: data });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch({ type: "SCHEDULE_ADD_APPOINTMENT", payload: { date } });
     console.log(state);
 
     // router.push("/thank-you-page");
@@ -84,107 +90,49 @@ const BookingCalender = () => {
             {redirecting ? "Redirecting..." : "Go to Checkout"}
           </button> */}
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <div className="grid grid-cols-3 gap-14 text-left">
             <div className="col-span-2">
-              <h1 className="text-2xl text-black font-samibold pb-2 mb-4 border-b-2 border-gray ">
-                Fill out your details
-              </h1>
-              <p>Tell us a bit about yourself</p>
-              <div className="grid grid-cols-2 gap-6 mt-10">
-                <div className="flex flex-col ">
-                  <label htmlFor="name" className="block mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    {...register("name", {
-                      required: "This field is required",
-                      maxLength: {
-                        value: 100,
-                        message: "Should be less than 100",
-                      },
-                    })}
+              <div>
+                <h2 className="text-2xl text-black">Select a Date and Time</h2>
+                <hr className="my-4 text-gray" />
+              </div>
+              <div className="flex">
+                <div>
+                  <Calendar
+                    activeStartDate={new Date(2023, 0, 5)}
+                    // defaultView={Views.year}
+                    // formatDay={(locale, date) => formatDate(date, "d")}
+                    onChange={onChange}
+                    value={date}
+                    onClickDay={() => setShowTime(true)}
                   />
-                  {<p className="text-red-400"> {errors.name?.message}</p>}
+                  {console.log(date)}
                 </div>
-                <div className="flex flex-col ">
-                  <label htmlFor="email" className="block mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    {...register("email", {
-                      required: "This field is required",
-                      pattern: {
-                        value:
-                          /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                        message: "Enter valid email",
-                      },
-                    })}
-                  />
-                  {<p className="text-red-400"> {errors.email?.message}</p>}
-                </div>
-                <div className="flex flex-col  col-span-2">
-                  <label htmlFor="phone" className="block mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="phone"
-                    id="phone"
-                    {...register("phone", {
-                      required: "This field is required",
-                    })}
-                  />
-                  {<p className="text-red-400"> {errors.phone?.message}</p>}
-                </div>
-                <div className="flex flex-col ">
-                  <label htmlFor="hearAbout" className="block mb-2">
-                    How Did You Hear About Us?*
-                  </label>
-                  <input
-                    type="text"
-                    id="hearAbout"
-                    {...register("hearAbout", {
-                      required: "This field is required",
-                    })}
-                  />
-                  {<p className="text-red-400"> {errors.hearAbout?.message}</p>}
-                </div>
-                <div className="flex flex-col ">
-                  <label htmlFor="emailList" className="block mb-2">
-                    How Did You Hear About Us?*
-                  </label>
-                  <input
-                    type="text"
-                    id="emailList"
-                    {...register("emailList", {
-                      required: "This field is required",
-                    })}
-                  />
-                  {<p className="text-red-400"> {errors.emailList?.message}</p>}
-                </div>
-                <div className="flex flex-col  col-span-2">
-                  <label htmlFor="discription" className="block mb-2">
-                    Tell Us Briefly About Your Design Needs *
-                  </label>
-                  <textarea
-                    type="text"
-                    id="discription"
-                    {...register("discription", {
-                      required: "This field is required",
-                    })}
-                  />
-                  {
-                    <p className="text-red-400">
-                      {errors.discription?.message}
+                <div className="ml-10 ">
+                  {date.length > 0 ? (
+                    <p>
+                      <span>Start:</span> {date[0].toDateString()}
+                      &nbsp; to &nbsp;
+                      <span>End:</span> {date[1].toDateString()}
                     </p>
-                  }
+                  ) : (
+                    <p>
+                      <span className="text-black">Default selected date:</span>{" "}
+                      {date.toDateString()}
+                    </p>
+                  )}
+                  <p className="text-black">No availability</p>
+
+                  <Time setTime = {setTime} showTime={showTime} date={date} />
+
+                  <button className="hover:cursor-pointer mt-10 bg-gray-400 px-10 py-2 text-white">
+                    Check Next Availability
+                  </button>
                 </div>
               </div>
             </div>
+
             <div className="text-left">
               <h1 className="text-2xl text-black font-samibold pb-2 border-b-2 border-gray ">
                 Service Details
@@ -202,7 +150,10 @@ const BookingCalender = () => {
                 <p className="text-graydark ">{appointment?.price}</p>
               </div>
 
-              <button className="w-full  bg-black text-white text-xl py-2 ">
+              <button
+                onClick={onSubmit}
+                className="w-full  bg-black text-white text-xl py-2 "
+              >
                 Book Now
               </button>
             </div>

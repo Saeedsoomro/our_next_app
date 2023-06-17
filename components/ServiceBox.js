@@ -1,10 +1,13 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const ServiceBox = ({ item }) => {
+  const [readMore, setReadMore] = useState(false);
+  const halfContent = item.details.slice(0, 100);
+
   return (
-    <div className="border border-graylight shadow flex flex-col justify-between h-[50rem] lg:h-screen md:h-[50rem] ">
-      <div className="h-[10rem]">
+    <div className="border border-graylight shadow flex flex-col justify-between h-full  ">
+      <div className="h-[15rem]">
         <img
           className="w-full h-full hover:opacity-50 bg-black"
           src={item.image}
@@ -13,9 +16,11 @@ const ServiceBox = ({ item }) => {
       <div className=" mx-1 py-6 border-b-2 border-gray">
         <h2 className="text-2xl text-black ">{item.name}</h2>
         <p className="text-start pt-4  ">
-          {/* Read More */}
-          {item.details}
+          {readMore ? item.details : halfContent + "..."}
         </p>
+        <button className="text-blue" onClick={() => setReadMore(!readMore)}>
+          {readMore ? "view less" : "view more"}
+        </button>
       </div>
       <div className="py-8">
         <p className="text-lg ">$ {item.price}</p>

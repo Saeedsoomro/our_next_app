@@ -1,9 +1,20 @@
 import React from "react";
 import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Slider_Values = () => {
   return (
-    <AwesomeSlider className="">
+    <AutoplaySlider
+      play={true}
+      infinite={true}
+      bullets={false}
+      interval={5000}
+      transitionDelay={100}
+      cancelOnInteraction={false} // should stop playing on user interaction
+      mobileTouch={true}
+      className=""
+    >
       <div className="bg-white h-full lg:pt-10 ">
         <h1 className="text-xl md:text-2xl text-graydark font-extrabold fonto-roboto py-2 md:py-4">
           VALUES
@@ -172,7 +183,7 @@ const Slider_Values = () => {
           sensitive to the needs and values of all students and their families.
         </p>
       </div>
-    </AwesomeSlider>
+    </AutoplaySlider>
   );
 };
 
