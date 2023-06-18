@@ -1,8 +1,7 @@
 import Layout from "@/components/Layouts/layout";
 import ServiceBox from "@/components/ServiceBox";
 import React from "react";
-import { Appointments, AppointmentsSupervision } from "@/utlils/data";
-import { AppointmentsSchool } from "@/utlils/data";
+import { Appointments } from "@/utlils/data";
 // swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,6 +12,15 @@ import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.min.css";
 
 const BookNow = () => {
+  const familyAppointments = Appointments.filter(
+    (obj) => obj.type === "family-consultaion"
+  );
+  const schoolAppointments = Appointments.filter(
+    (obj) => obj.type === "school-consultaion"
+  );
+  const therapistAppointments = Appointments.filter(
+    (obj) => obj.type === "therapist-consultaion"
+  );
   return (
     <>
       <Layout>
@@ -84,7 +92,7 @@ const BookNow = () => {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {Appointments.map((item) => (
+            {familyAppointments.map((item) => (
               <SwiperSlide className="h-full">
                 <ServiceBox key={item.slug} item={item} />
               </SwiperSlide>
@@ -116,7 +124,7 @@ const BookNow = () => {
             onSwiper={(swiper) => console.log(swiper)}
           >
             {/* <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 "> */}
-            {AppointmentsSchool.map((item) => (
+            {schoolAppointments.map((item) => (
               <SwiperSlide className="w-screen">
                 <ServiceBox key={item.slug} item={item} />
               </SwiperSlide>
@@ -127,7 +135,7 @@ const BookNow = () => {
             RBT\Qasp-s\ABA therapists Supervision
           </h1>
           <div className=" md:w-1/2 lg:w-[30rem] ">
-            {AppointmentsSupervision.map((item) => (
+            {therapistAppointments.map((item) => (
               <ServiceBox key={item.slug} item={item} />
             ))}
           </div>

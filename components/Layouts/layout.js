@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
   const handleScroll = () => {
     const position = window.pageYOffset;
     if (position > 200) {
-      console.log(position);
       setIsManuScrolled(true);
     } else {
       setIsManuScrolled(false);
