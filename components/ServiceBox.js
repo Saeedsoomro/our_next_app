@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const ServiceBox = ({ item }) => {
   const [readMore, setReadMore] = useState(false);
   const halfContent = item.details.slice(0, 100);
-
+  console.log(item.slug);
   return (
     <div className="border border-graylight shadow flex flex-col justify-between h-full  ">
       <div className="h-[15rem]">
