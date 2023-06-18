@@ -2,17 +2,23 @@
 export const Appointments = [
   {
     name: "Applied Behavior Analysis (ABA) Therapy",
-    slug: "discovery-phone-call",
+    slug: "applied-behavior",
+    type: "family-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.uQPMykkDg8jY9zuwFdbO5gHaFW&pid=Api&P=0",
     details:
       "ABA therapy is a treatment approach that uses principles of behavior analysis to teach new skills and improve behaviors. Support Works Consulting offers ABA therapy services to individuals with special needs to help them learn new skills and improve their social, communication, and adaptive behavior skills.",
-    price: "free",
+    price: "2000",
     time: "30 min",
   },
   {
     name: "Counseling and Behavior Support",
-    slug: "initial-in-home-consultation",
+    slug: "couseling-behavior",
+    type: "family-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse4.mm.bing.net/th?id=OIP.0wjZ49HN1m1T6rF1KqE1SAHaJN&pid=Api&P=0",
     details:
@@ -22,7 +28,10 @@ export const Appointments = [
   },
   {
     name: "Parent Training and Support: ",
-    slug: "eDesign",
+    slug: "parent-training",
+    type: "family-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse2.mm.bing.net/th?id=OIP.sgJoK9FsH-Wvp9uRER8JjAHaJ6&pid=Api&P=0",
     details:
@@ -32,7 +41,10 @@ export const Appointments = [
   },
   {
     name: "Functional Communication Training (FCT)",
-    slug: "in-home-power-session",
+    slug: "functional-commication",
+    type: "family-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse4.mm.bing.net/th?id=OIP.M2gm-z7jGsS9zC5KC5pmbwHaIm&pid=Api&P=0",
     details:
@@ -42,7 +54,10 @@ export const Appointments = [
   },
   {
     name: "Multidisciplinary meeting",
-    slug: "finishing-touches",
+    slug: "multidisciplinary-meeting",
+    type: "family-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
@@ -50,14 +65,13 @@ export const Appointments = [
     price: "free",
     time: "30 min",
   },
-];
 
-// Schools Consultation
-
-export const AppointmentsSchool = [
   {
     name: "Applied Behavior Analysis (ABA) Therapy",
-    slug: "finishing-touches",
+    slug: "school-applied",
+    type: "school-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
@@ -66,7 +80,10 @@ export const AppointmentsSchool = [
   },
   {
     name: "Educational Consulting",
-    slug: "finishing-touches",
+    slug: "educational-consulting",
+    type: "school-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
@@ -75,7 +92,10 @@ export const AppointmentsSchool = [
   },
   {
     name: "Parent Training and Support",
-    slug: "finishing-touches",
+    slug: "school-parent",
+    type: "school-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
@@ -84,19 +104,23 @@ export const AppointmentsSchool = [
   },
   {
     name: "Functional Communication Training (FCT):",
-    slug: "finishing-touches",
+    slug: "school-functional",
+    type: "school-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
       "FCT is used to teach and establish replacement behaviors for inappropriate or harmful behaviors such as aggression, escape/elopement, non-compliance, etc. When a child is regularly engaging in disruptive, challenging behaviors, the child is having difficulty communicating or meeting their wants and needs. Even for a verbal child, but particularly for a non-verbal child, the behavior is a way of communicating. It is our role to develop a comprehensive ABA program to replace challenging behaviors with more effective and efficient positive/functional behaviors in order to get their needs and wants to be met in a more socially acceptable manner.",
     time: "30 min",
   },
-];
 
-export const AppointmentsSupervision = [
   {
     name: "ABA therapists Supervision",
-    slug: "finishing-touches",
+    slug: "therapists-supervision",
+    type: "therapist-consultaion",
+    calenderUrl:
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2aMHvojo5QlHGW81Ii19OMg7hb4F1VzkNZ49kNl4koYep3FzZ81A1TcGi2e_d7mmxivv2SXhxA?gv=true",
     image:
       "https://tse3.mm.bing.net/th?id=OIP.jOxRE3HQun6L5EQqxc45IwHaLH&pid=Api&P=0",
     details:
