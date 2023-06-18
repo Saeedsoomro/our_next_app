@@ -46,7 +46,10 @@ export default function Home() {
             partner with schools to create a more inclusive and supportive
             society.
           </p>
-          <h1 className="text-2xl text-graydark font-extrabold fonto-roboto py-4">
+          <h1
+            id="mission-purpose"
+            className="text-2xl text-graydark font-extrabold fonto-roboto py-4"
+          >
             Mission & Purpose
           </h1>
           <p className="py-4 font-roboto text-xl text-graydark ">
@@ -91,7 +94,7 @@ export default function Home() {
             of the services that Support Works Consulting may offer:
           </p>
         </div>
-        <div className="text-center">
+        <div className="text-center" id="services">
           <button className="bg-red-400 px-5 py-2 font-samibold text-white font-noto hover:text-blaxk uppercase">
             let's talk about our project
           </button>
@@ -397,7 +400,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="  md:px-20 lg:px-60 2xl:px-80 mt-10 md:mt-20">
+        <div
+          className="  md:px-20 lg:px-60 2xl:px-80 mt-10 md:mt-20"
+          id="values"
+        >
           <div className="bg-[url('https://tse4.mm.bing.net/th?id=OIP.wK8KjOjCkpE1fblJkTPsQwHaEW&pid=Api&P=0')]  hover:bg-[url('https://tse3.mm.bing.net/th?id=OIP.uQPMykkDg8jY9zuwFdbO5gHaFW&pid=Api&P=0')] bg-no-repeat bg-center bg-cover relative h-[20rem] md:h-[35rem]">
             <div className="w-5/6  lg:h-auto  md:h-fit border-2 border-black-900 solid relative top-1/2 left-8 sm:left-20 text-center  justify-center bg-white">
               <div className=" m-2 bg-white border-2 border-black-900 solid">

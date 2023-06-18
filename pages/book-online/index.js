@@ -64,7 +64,7 @@ const BookNow = () => {
         </div>
 
         {/* <div className="px-10 md:px-20 lg:px-60 2xl:px-80 text-center"> */}
-        <div className="px-10 md:px-10 lg:px-10 text-center">
+        <div className="px-10 md:px-10 lg:px-40 text-center">
           <h1 className="text-3xl md:text-4xl text-black font-bold my-12 md:pt-20 ">
             Book An Appointment
           </h1>
@@ -87,7 +87,7 @@ const BookNow = () => {
                 slidesPerView: 3, //PC
               },
             }}
-            navigation={false}
+            navigation={true}
             pagination={{ clickable: true }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
@@ -118,7 +118,7 @@ const BookNow = () => {
                 slidesPerView: 3, //PC
               },
             }}
-            navigation={false}
+            navigation={true}
             pagination={{ clickable: true }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
@@ -134,8 +134,10 @@ const BookNow = () => {
           <h1 className="text-xl md:text-2xl text-black font-bold my-12 md:pt-10">
             RBT\Qasp-s\ABA therapists Supervision
           </h1>
+         
           <div className=" md:w-1/2 lg:w-[30rem] ">
             {therapistAppointments.map((item) => (
+
               <ServiceBox key={item.slug} item={item} />
             ))}
           </div>

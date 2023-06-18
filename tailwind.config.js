@@ -47,6 +47,7 @@ module.exports = {
         robotocondensed: ["Roboto Condensed", "sans-serif"],
         sans: ["Graphik", "sans-serif"],
         serif: ["Merriweather", "serif"],
+        lato: ["Lato", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

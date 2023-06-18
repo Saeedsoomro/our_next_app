@@ -9,6 +9,8 @@ import {
   AiOutlineMinus,
 } from "react-icons/ai";
 import { useRouter } from "next/router";
+// import Link from "next/link";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -16,6 +18,16 @@ const Header = () => {
   const [navLink, setNavlink] = useState("/");
   const router = useRouter();
   const { pathname } = router;
+  const handleLinkClick = () => {
+    setOpenNav(false);
+    setOpenService(false);
+  };
+  const handleHomeLinkClick = () => {
+    scroll.scrollToTop({
+      smooth: true,
+      duration: 500,
+    });
+  };
 
   return (
     <header>
@@ -27,7 +39,7 @@ const Header = () => {
             : "left-[-100%] opacity-0 transit"
         } relative z-10 `}
       >
-        <div className="fixed top-0  w-full min-h-screen bg-white">
+        <div className="fixed top-0  w-full min-h-screen bg-white font-sans">
           <div className="bg-gray text-black h-60 px-5 flex flex-col justify-between">
             <div className=" text-4xl font-bold p-10">
               <AiOutlineClose onClick={() => setOpenNav(false)} />
@@ -35,16 +47,17 @@ const Header = () => {
           </div>
           <div className="flex flex-col mx-3">
             <div className="border-b py-1 w-9/12 ">
-              <Link
-                href="#home"
-                className="text-2xl block text-gray py-1 px-2 "
-              >
+              <Link href="/" className="text-2xl block text-gray py-1 px-2 ">
                 HOME
               </Link>
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
-                href="#home"
+                onClick={() => {
+                  handleLinkClick();
+                  handleHomeLinkClick();
+                }}
+                href="#about"
                 className="text-2xl block text-gray py-1 px-2 "
               >
                 ABOUT
@@ -52,6 +65,7 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
+                onClick={handleLinkClick}
                 href="#home"
                 className="text-2xl block text-gray py-1 px-2 "
               >
@@ -60,6 +74,7 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-10/12">
               <Link
+                onClick={handleLinkClick}
                 href="#home"
                 className="text-2xl block text-gray py-1 px-2 "
               >
@@ -68,7 +83,8 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
-                href="#home"
+                onClick={handleLinkClick}
+                href="#values"
                 className="text-2xl block text-gray py-1 px-2 "
               >
                 VALUES
@@ -76,7 +92,8 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
-                href="#home"
+                onClick={handleLinkClick}
+                href="#services"
                 className="text-2xl block text-gray py-1 px-2 "
               >
                 {openService ? (
@@ -100,12 +117,14 @@ const Header = () => {
                 }
               >
                 <Link
+                  onClick={handleLinkClick}
                   href="#home"
                   className="text-xl block text-gray py-1 px-2 "
                 >
                   The blogs
                 </Link>
                 <Link
+                  onClick={handleLinkClick}
                   href="#home"
                   className="text-xl block text-gray py-1 px-2 "
                 >
@@ -115,7 +134,8 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
-                href="#home"
+                onClick={handleLinkClick}
+                href="#contact"
                 className="text-2xl block text-gray py-1 px-2 "
               >
                 CONTACT US
@@ -123,7 +143,8 @@ const Header = () => {
             </div>
             <div className="border-b py-1 w-9/12">
               <Link
-                href="#home"
+                onClick={handleLinkClick}
+                href="/book-online"
                 className="text-2xl block text-gray py-1 px-2 "
               >
                 BOOK NOW
@@ -152,16 +173,24 @@ const Header = () => {
               </Link>
             </div>
           </div> */}
-          <div className="w-full">
-            <div className="flex justify-center px-10 md:px-0">
+          <div className="w-full ">
+            <div className="flex justify-center px-10 md:px-0 ">
               <div className="text-4xl mt-4 mr-6 md:hidden">
                 <AiOutlineMenu onClick={() => setOpenNav(true)} />
               </div>
-              <Link href="#home" className="text-8xl md:text-9xl font-bold">
-                <h1>LOGO</h1>
+              <Link
+                href="#home"
+                className="   text-8xl md:text-9xl font-bold   md:w-[20rem] h-[10rem] "
+              >
+                <img
+                  src="./assets/images/supportLogo.png"
+                  alt="Logo"
+                  className="h-full w-full"
+                />
               </Link>
             </div>
-            <div className="flex justify-center md:hidden">
+
+            <div className="flex justify-center  md:hidden">
               <div className="socialIcon">1</div>
               <div className="socialIcon">1</div>
               <div className="socialIcon">1</div>
@@ -169,10 +198,13 @@ const Header = () => {
             </div>
           </div>
           <ul className="w-full hidden hidden md:flex justify-between">
-            <li>
+            <li className="cursor-pointer">
               <Link
                 href="/"
-                onClick={() => setNavlink("/")}
+                onClick={() => {
+                  setNavlink("/");
+                  handleHomeLinkClick();
+                }}
                 className={
                   pathname == "/"
                     ? navLink == "/"
@@ -180,47 +212,61 @@ const Header = () => {
                       : "navLink transit"
                     : "navLink transit"
                 }
+                smooth={true}
+                duration={500}
               >
                 home
               </Link>
             </li>
-            <li>
-              <Link
-                href="#about"
-                onClick={() => setNavlink("/about")}
+            <li className="cursor-pointer">
+              <ScrollLink
+                to="about"
                 className={
                   navLink == "/about"
                     ? "active navLink transit"
                     : "navLink transit"
                 }
+                smooth={true}
+                duration={500}
               >
                 about
-              </Link>
+              </ScrollLink>
             </li>
-            <li>
-              <Link
-                href="#compony"
+            <li className="cursor-pointer">
+              <ScrollLink
+                to="compony" // Replace "sectionId" with the ID of the target section
+                smooth={true}
+                duration={500}
                 onClick={() => setNavlink("/compony")}
                 className={navLink == "/compony" ? "active navLink" : "navLink"}
               >
                 componies
-              </Link>
+              </ScrollLink>
             </li>
-            <li>
-              <Link
-                href="#mission-purposes"
+            <li className="cursor-pointer">
+              <ScrollLink
+                to="mission-purpose"
                 onClick={() => setNavlink("/mission-purposes")}
                 className={
                   navLink == "/mission-purposes" ? "active navLink" : "navLink"
                 }
+                smooth={true}
+                duration={500}
               >
                 mission & purposes
-              </Link>
+              </ScrollLink>
             </li>
+
             <li class="dropdown  group relative px-4 cursor-pointer">
-              <Link href="#home" className=" text-graydark uppercase font-noto">
+              <ScrollLink
+                className=" text-graydark uppercase font-noto"
+                to="services"
+                smooth={true}
+                duration={500}
+              >
                 Services
-              </Link>
+              </ScrollLink>
+
               <div class="group-hover:block dropdown-menu absolute hidden h-auto w-auto   z-10 pt-3">
                 <ul class="bg-white shadow py-2 text-center text-xs">
                   <li>
@@ -243,25 +289,29 @@ const Header = () => {
               </div>
             </li>
 
-            <li>
-              <Link
-                href="#values"
+            <li className="cursor-pointer">
+              <ScrollLink
+                to="values"
                 onClick={() => setNavlink("/values")}
                 className={navLink == "/values" ? "active navLink" : "navLink"}
+                smooth={true}
+                duration={500}
               >
                 values
-              </Link>
+              </ScrollLink>
             </li>
-            <li>
-              <Link
-                href="#contact"
+            <li className="cursor-pointer">
+              <ScrollLink
+                to="contact"
                 onClick={() => setNavlink("/contact")}
                 className={navLink == "/contact" ? "active navLink" : "navLink"}
+                smooth={true}
+                duration={500}
               >
                 contact us
-              </Link>
+              </ScrollLink>
             </li>
-            <li>
+            <li className="cursor-pointer">
               <Link
                 href="book-online"
                 className={
