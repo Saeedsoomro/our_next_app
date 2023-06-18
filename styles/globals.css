@@ -46,3 +46,19 @@ select,
 textarea {
   @apply border p-2  outline-none ring-indigo-300  focus:ring;
 }
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Lato-Regular.ttf") format("truetype");
+  /* Repeat this line for other font weights and formats */
+}
+
+/* @font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700; */
+/* src: url("../fonts/Lato-Bold.ttf") format("truetype"); */
+/* Repeat this line for other font weights and formats */
+/* } */
